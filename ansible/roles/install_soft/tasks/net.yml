@@ -1,0 +1,27 @@
+---
+
+- name: install requirements
+  apt: name={{item}} state=installed
+  with_items:
+    - iproute
+    - iproute2
+    - iptables
+    - openssh-client
+    - telnet
+    - snmp
+    - ntpdate
+    - ftp
+    - aria2
+    - tcpdump
+    - wget
+    - curl
+    - traceroute
+    - dnsutils
+    - ethtool
+    - ipcalc
+    - mtr-tiny
+    - nmap
+    - dsniff
+    - tshark
+    - whois
+    - wireshark

@@ -1,0 +1,21 @@
+---
+
+- name: install requirements
+  apt: name={{item}} state=installed
+  with_items:
+    - git
+    - screen
+    - smartmontools
+    - mc
+    - vim
+    - atop
+    - dmidecode
+    - gdisk
+    - hdparm
+    - strace
+    - lsof
+    - rsync
+    - ipython
+    - coreutils
+    - pwgen
+    - rar

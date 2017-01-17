@@ -1,0 +1,26 @@
+---
+
+- name: install requirements
+  apt: name={{item}} state=installed
+  with_items:
+    - kate
+    - okular
+    - remmina
+    - remmina-common
+    - remmina-plugin-rdp
+    - remmina-plugin-vnc
+    - rdesktop
+    - dolphin
+    - djvusmooth
+    - vlc
+    - kvirc
+    - gwenview
+    - ktorrent
+    - kcalc
+    - vagrant
+    - virtualbox
+    - virtualbox-dkms
+    - firefox
+    - google-chrome-stable
+    - libreoffice-writer
+#    - klipper

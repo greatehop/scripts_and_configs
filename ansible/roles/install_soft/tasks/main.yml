@@ -1,0 +1,10 @@
+---
+
+- name: apt-get update
+  apt: update_cache=yes
+
+- include: tools.yml
+
+- include: net.yml
+
+- include: gui.yml
