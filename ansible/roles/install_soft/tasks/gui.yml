@@ -17,10 +17,9 @@
     - gwenview
     - ktorrent
     - kcalc
-    - vagrant
     - virtualbox
     - virtualbox-dkms
     - firefox
     - google-chrome-stable
     - libreoffice-writer
-#    - klipper
+    - libreoffice-calc
