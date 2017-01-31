@@ -7,4 +7,5 @@
    - vars/all.yml
   roles:
     - mysql
+    - php
 
