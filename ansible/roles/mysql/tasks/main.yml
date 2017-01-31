@@ -1,0 +1,23 @@
+---
+
+- name: set mysql root password before installation
+  debconf: name="mysql-server"
+           question="mysql-server/root_password"
+           value="{{ mysql_root_pass | quote }}"
+           vtype="password"
+
+- name: confirm mysql root password before installation
+  debconf: name="mysql-server"
+           question="mysql-server/root_password_again"
+           value="{{ mysql_root_pass | quote }}"
+           vtype="password"
+
+- name: install requirements
+  apt: name={{item}}
+       state=installed
+       #update_cache=yes
+       #force=yes
+  with_items:
+  - mysql-server
+  - libmysqlclient-dev
+  - mysql-client
