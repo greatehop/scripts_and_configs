@@ -8,4 +8,4 @@
   roles:
     - mysql
     - php
-
+    - nginx
