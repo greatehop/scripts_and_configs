@@ -18,6 +18,7 @@
     - ipython
     - coreutils
     - pwgen
+    - bc
     - rar
     - vagrant
     - docker.io

@@ -1,0 +1,10 @@
+---
+
+- name: set hostname
+  hostname:
+    name: "{{ hostname }}"
+
+- name: set hostname in /etc/hosts
+  replace: dest="/etc/hosts"
+           regexp="'^.*$"
+           replace="{{ hostname }}"

@@ -1,5 +1,8 @@
 ---
 
 mysql_root_pass: "changeme"
+
 domain_name: "changeme"
 domain_rootdir: "changeme"
+
+hostname: "changeme"
