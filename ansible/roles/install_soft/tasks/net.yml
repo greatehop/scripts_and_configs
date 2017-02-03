@@ -26,3 +26,5 @@
     - whois
     - wireshark
     - sshpass
+    - vlan
+    - bridge-utils

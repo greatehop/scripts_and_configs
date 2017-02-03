@@ -18,3 +18,6 @@ ansible-playbook lemp.yml -k
 
 # install/configure LAMP (Linux + apache + fastcgi + Let'sEncrypt certs)
 ansible-playbook lamp.yml -k
+
+# basic configuration
+ansible-playbook basic.yml -k

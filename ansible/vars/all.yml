@@ -6,3 +6,5 @@ domain_name: "changeme"
 domain_rootdir: "changeme"
 
 hostname: "changeme"
+
+timezone: "Europe/Kiev"
