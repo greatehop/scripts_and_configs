@@ -1,0 +1,10 @@
+---
+
+- name: get full path for editor
+  command: which {{ editor }}
+  register: path_editor
+
+- name: set default editor
+  alternatives:
+    name: editor
+    path: "{{ path_editor.stdout }}"

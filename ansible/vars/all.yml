@@ -8,3 +8,5 @@ domain_rootdir: "changeme"
 hostname: "changeme"
 
 timezone: "Europe/Kiev"
+
+editor: "vim"
