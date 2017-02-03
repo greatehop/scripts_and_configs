@@ -1,0 +1,50 @@
+---
+
+- name: install openvpn
+  apt: name={{item}} state=installed
+  with_items:
+    - openvpn
+    - easy-rsa
+
+- name: generate config openvpn server config
+  template: src=server.conf
+            dest=/etc/openvpn/{{ hostname }}.conf
+            mode=0644
+            owner=root
+            group=root
+
+- name: ensure openvpn is running
+  service: name=openvpn
+           state=started
+
+- name: create dir ccd
+  file: path=/etc/openvpn/ccd
+        state=directory
+        recurse=yes
+
+- name: create dir clients_configs
+  file: path=/etc/openvpn/clients_configs
+        state=directory
+
+- name: create dir for logs
+  file: path=/var/log/openvpn/
+        state=directory
+
+
+#/var/log/openvpn/openvpn_server.log
+
+
+#  notify:
+#    - restart openvpn
+
+
+- name: set iptables rule for openvpn's client(s)
+  iptables:
+    table: nat
+    chain: PREROUTING
+    source: "{{ openvpn_subnet }}/24"
+    protocol: tcp
+    match: tcp
+    destination_port: 1194
+    jump: MASQUERADE
+    comment: for openvpn clients

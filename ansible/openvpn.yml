@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  gather_facts: no
+  become: yes
+  vars_files:
+   - vars/all.yml
+  roles:
+    - openvpn
+
+#- add_keys
+#- del_keys
+#- list

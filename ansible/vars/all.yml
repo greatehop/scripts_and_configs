@@ -10,3 +10,5 @@ hostname: "changeme"
 timezone: "Europe/Kiev"
 
 editor: "vim"
+
+openvpn_subnet: "10.10.10."
