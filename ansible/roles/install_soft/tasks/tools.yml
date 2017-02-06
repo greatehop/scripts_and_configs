@@ -5,13 +5,9 @@
   with_items:
     - git
     - screen
-    - smartmontools
     - mc
     - vim
     - atop
-    - dmidecode
-    - gdisk
-    - hdparm
     - strace
     - lsof
     - rsync
@@ -23,3 +19,10 @@
     - rar
     - vagrant
     - docker.io
+    - pv
+    - smartmontools
+    - memtester
+    - cpuburn
+    - dmidecode
+    - gdisk
+    - hdparm
