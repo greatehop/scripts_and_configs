@@ -4,4 +4,4 @@
   gather_facts: no
   become: yes
   roles:
-    - install_soft
+    - php_fpm

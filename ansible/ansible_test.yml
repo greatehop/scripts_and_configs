@@ -11,5 +11,4 @@
     - alternatives
     - install_soft
     - mysqld
-
-
+    - php_fpm
