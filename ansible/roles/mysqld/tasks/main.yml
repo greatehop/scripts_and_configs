@@ -13,11 +13,16 @@
            vtype="password"
 
 - name: install requirements
-  apt: name={{item}}
-       state=installed
+  apt: name="{{ item }}"
+       state=present
        #update_cache=yes
        #force=yes
   with_items:
-  - mysql-server
-  - libmysqlclient-dev
-  - mysql-client
+   - mysql-server
+   - mysql-client
+   - libmysqlclient-dev
+
+- name: enable and restart mysqld
+  service: name=mysql
+           state=started
+           enabled=yes

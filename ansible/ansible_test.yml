@@ -10,7 +10,6 @@
     - timezone
     - alternatives
     - install_soft
-    - mysql
-#    -php
+    - mysqld
 
 
