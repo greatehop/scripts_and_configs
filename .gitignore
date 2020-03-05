@@ -4,3 +4,6 @@ vagrant_ansible_inventory_default
 
 # Ansible
 *.retry
+
+.venv
+*.log
