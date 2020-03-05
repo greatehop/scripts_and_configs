@@ -1,7 +1,7 @@
 ---
 
-- name: install python 2
-  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+#- name: install python 2
+#  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
 
 - name: apt-get update
   apt: update_cache=yes
@@ -12,5 +12,5 @@
 - include: net.yml
   tags: net
 
-- include: gui.yml
-  tags: gui
+#- include: gui.yml
+#  tags: gui
