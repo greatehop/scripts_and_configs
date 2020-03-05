@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  gather_facts: no
+  become: yes
+  vars_files:
+    - vars/all.yml
+  roles:
+    - hostname
+    - timezone
+    - alternatives
+    - install_soft
+    - mysql
+#    -php
+
+
