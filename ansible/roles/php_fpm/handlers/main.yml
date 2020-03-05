@@ -1,7 +1,7 @@
 ---
 
 - name: restart php-fpm
-  service: name=php7.2-fpm
+  service: name=php{{ php_fpm_version }}-fpm
            state=restarted
            enabled=yes
 

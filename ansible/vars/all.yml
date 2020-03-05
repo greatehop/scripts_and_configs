@@ -12,3 +12,5 @@ timezone: "Europe/Kiev"
 editor: "vim"
 
 openvpn_subnet: "10.10.10."
+
+php_fpm_version: "7.2"

@@ -2,6 +2,8 @@
 
 - hosts: all
   gather_facts: no
+  vars_files:
+    - vars/all.yml
   become: yes
   roles:
     - php_fpm

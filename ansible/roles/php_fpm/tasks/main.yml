@@ -1,15 +1,15 @@
 ---
 
 - name: install php requirements
-  apt: name="{{item}}"
+  apt: name="{{ item }}"
        state=present
   with_items:
-    - php7.2-cli
-    - php7.2-common
-    - php7.2-fpm
-    - php7.2-json
-    - php7.2-mysql
-    - php7.2-opcache
-    - php7.2-readline
+    - php{{ php_fpm_version }}-cli
+    - php{{ php_fpm_version }}-common
+    - php{{ php_fpm_version }}-fpm
+    - php{{ php_fpm_version }}-json
+    - php{{ php_fpm_version }}-mysql
+    - php{{ php_fpm_version }}-opcache
+    - php{{ php_fpm_version }}-readline
   notify:
-    - restart php7.2-fpm
+    - restart php{{ php_fpm_version }}-fpm
