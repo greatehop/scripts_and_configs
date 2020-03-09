@@ -1,9 +1,12 @@
 # Vagrant
 .vagrant
 vagrant_ansible_inventory_default
+*.log
 
 # Ansible
 *.retry
 
 .venv
-*.log
+
+# PyCharm
+.idea
