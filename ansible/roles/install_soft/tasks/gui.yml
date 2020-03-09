@@ -1,8 +1,9 @@
 ---
 
-- name: install requirements
-  apt: name="{{item}}"
-       state=present
+- name: Install requirements
+  apt:
+    name: "{{item}}"
+    state: present
   with_items:
     - kate
     - okular

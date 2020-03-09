@@ -1,28 +1,30 @@
 ---
 
-- name: set mysql root password before installation
-  debconf: name="mysql-server"
-           question="mysql-server/root_password"
-           value="{{ mysql_root_pass | quote }}"
-           vtype="password"
+- name: Set mysql root password before installation
+  debconf:
+    name: "mysql-server"
+    question: "mysql-server/root_password"
+    value: "{{ mysql_root_pass | quote }}"
+    vtype: "password"
 
-- name: confirm mysql root password before installation
-  debconf: name="mysql-server"
-           question="mysql-server/root_password_again"
-           value="{{ mysql_root_pass | quote }}"
-           vtype="password"
+- name: Confirm mysql root password before installation
+  debconf:
+    name: "mysql-server"
+    question: "mysql-server/root_password_again"
+    value: "{{ mysql_root_pass | quote }}"
+    vtype: "password"
 
-- name: install requirements
-  apt: name="{{ item }}"
-       state=present
-       #update_cache=yes
-       #force=yes
+- name: Install requirements
+  apt:
+    name: "{{ item }}"
+    state: present
   with_items:
-   - mysql-server
-   - mysql-client
-   - libmysqlclient-dev
+    - mysql-server
+    - mysql-client
+    - libmysqlclient-dev
 
-- name: enable and restart mysqld
-  service: name=mysql
-           state=started
-           enabled=yes
+- name: Enable and restart mysqld
+  service:
+    name: mysql
+    state: started
+    enabled: yes
