@@ -1,4 +1,5 @@
-proxy_user: nobody
-proxy_group: nogroup
 proxy_bin_path: /opt/bin
 proxy_conf_path: /etc/3proxy.cfg
+proxy_tmp_path: /root/3proxy
+proxy_repo: https://github.com/z3apa3a/3proxy
+proxy_version: master

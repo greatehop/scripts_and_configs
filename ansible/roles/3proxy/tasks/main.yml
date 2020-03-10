@@ -2,8 +2,10 @@
 
 - name: Download 3proxy repository
   git:
-    repo: "https://github.com/z3apa3a/3proxy"
-    dest: /root/3proxy
+    repo: "{{ proxy_repo }}"
+    dest: "{{ proxy_tmp_path }}"
+    version: "{{ proxy_version }}"
+    force: yes
 
 - name: Install 3proxy requirements
   apt:
@@ -16,7 +18,7 @@
 - name: Compile 3proxy
   shell: "make -f Makefile.Linux"
   args:
-    chdir: /root/3proxy/
+    chdir: "{{ proxy_tmp_path }}"
 
 - name: Create directory for 3proxy binary
   file:
@@ -29,12 +31,15 @@
 - name: Copy 3proxy binary
   copy:
     mode: 0755
-    src: /root/3proxy/bin/3proxy
+    src: "{{ proxy_tmp_path }}/src/3proxy"
     dest: "{{ proxy_bin_path }}/3proxy"
     remote_src: yes
 
 - name: Create 3proxy config
   template:
+    mode: 0440
+    owner: "root"
+    group: "root"
     src: 3proxy.cfg.j2
     dest: "{{ proxy_conf_path }}"
 
@@ -50,8 +55,8 @@
     state: restarted
     daemon_reload: yes
 
-#- name: Cleanup 3proxy source directory
-#  file:
-#    state: absent
-#    dest: /root/3proxy/
-#    force: yes
+- name: Cleanup 3proxy source directory
+  file:
+    state: absent
+    dest: "{{ proxy_tmp_path }}"
+    force: yes

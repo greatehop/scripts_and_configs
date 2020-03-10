@@ -15,5 +15,5 @@ openvpn_subnet: "10.10.10."
 
 php_fpm_version: "7.2"
 
-proxy_conf_user: "changeme"
-proxy_conf_pass: "changeme"
+proxy_user: "changeme"
+proxy_pass: "changeme"

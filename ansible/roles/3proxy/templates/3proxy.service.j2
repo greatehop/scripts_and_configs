@@ -3,16 +3,11 @@ Description=3proxy daemon
 After=network.target
 
 [Service]
-#User={{ proxy_user }}
-#Group={{ proxy_group }}
-#User=root
-#Group=root
-Type=oneshot
-#WorkingDirectory={{ proxy_bin_path }}
+User=root
+Group=root
+Type=forking
+WorkingDirectory={{ proxy_bin_path }}
 ExecStart={{ proxy_bin_path }}/3proxy {{ proxy_conf_path }}
-ExecStop=/usr/bin/killall 3proxy
-#Restart=always
-#RestartSec=3
 
 [Install]
 WantedBy=multi-user.target

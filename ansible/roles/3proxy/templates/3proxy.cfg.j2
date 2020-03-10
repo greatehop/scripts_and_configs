@@ -1,7 +1,10 @@
 timeouts 1 5 30 60 180 1800 15 60
-users {{ proxy_conf_user }}:CL:{{ proxy_conf_pass }}
 daemon
 auth strong
 allow *
 proxy -a -n
+
 #log /var/log/3proxy.log
+#rotate 30
+
+users {{ proxy_user }}:CL:{{ proxy_pass }}
