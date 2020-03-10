@@ -1,0 +1,29 @@
+---
+
+- name: Configure sshl package
+  debconf:
+    name: "sslh"
+    question: "sslh/inetd_or_standalone"
+    value: "inetd"
+    vtype: "string"
+
+- name: Install sslh
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - sslh
+
+- name: Create sslh config
+  template:
+    owner: "root"
+    group: "root"
+    src: sslh.conf.j2
+    dest: "/etc/default/sslh"
+
+- name: Enable and launch sslh service
+  systemd:
+    name: sslh
+    enabled: yes
+    state: restarted
+    daemon_reload: yes
