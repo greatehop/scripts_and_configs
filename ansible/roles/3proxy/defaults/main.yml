@@ -1,0 +1,4 @@
+proxy_user: nobody
+proxy_group: nogroup
+proxy_bin_path: /opt/bin
+proxy_conf_path: /etc/3proxy.cfg

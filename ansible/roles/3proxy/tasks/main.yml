@@ -1,0 +1,57 @@
+---
+
+- name: Download 3proxy repository
+  git:
+    repo: "https://github.com/z3apa3a/3proxy"
+    dest: /root/3proxy
+
+- name: Install 3proxy requirements
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - gcc
+    - make
+
+- name: Compile 3proxy
+  shell: "make -f Makefile.Linux"
+  args:
+    chdir: /root/3proxy/
+
+- name: Create directory for 3proxy binary
+  file:
+    name: "{{ proxy_bin_path }}"
+    mode: 0755
+    owner: "root"
+    group: "root"
+    state: directory
+
+- name: Copy 3proxy binary
+  copy:
+    mode: 0755
+    src: /root/3proxy/bin/3proxy
+    dest: "{{ proxy_bin_path }}/3proxy"
+    remote_src: yes
+
+- name: Create 3proxy config
+  template:
+    src: 3proxy.cfg.j2
+    dest: "{{ proxy_conf_path }}"
+
+- name: Create systemd unit for 3proxy service
+  template:
+    src: 3proxy.service.j2
+    dest: /etc/systemd/system/3proxy.service
+
+- name: Enable and launch 3proxy service
+  systemd:
+    name: 3proxy
+    enabled: yes
+    state: restarted
+    daemon_reload: yes
+
+#- name: Cleanup 3proxy source directory
+#  file:
+#    state: absent
+#    dest: /root/3proxy/
+#    force: yes
